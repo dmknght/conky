@@ -1,0 +1,39 @@
+conky.config = {
+	total_run_times = 0,
+	background = true,
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 1024,
+	alignment = 'top_right',
+	gap_x = 380,
+	gap_y = 210,
+	update_interval = 1,
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	border_width = 1,
+	border_inner_margin = 1,
+	own_window = true,
+	own_window_type = 'dock',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+	use_xft = true,
+	xftalpha = .1,
+	override_utf8_locale = true,
+	uppercase = false,
+	use_spacer = left,
+	font = 'Future:size=9',
+
+	stippled_borders = 3,
+	short_units = true,
+	pad_percents = 2,
+
+	lua_load = '/etc/conky/lua/draw_bg.lua',
+	lua_draw_hook_pre = 'draw_bg'
+}
+conky.text = [[
+${color gray}${font Future:size=18}Open ports
+${voffset 5}${font Future:size=16}${exec netstat -lnt | awk 'NR>2{print $4}' | grep -E '(127.0.0.1|:::)' | sed 's/.*://' | sort -n | uniq}
+]]
