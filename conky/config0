@@ -50,7 +50,7 @@ ${voffset -10}${goto 190}${color gray}${font Future:size=24}${exec echo "$USER"}
 ${goto 130}${font Future:size=18}${exec lsb_release -d | cut -f 2}
 ${font Future:size=16}${goto 130}$kernel
 ${voffset 5}${goto 130}${exec echo $XDG_CURRENT_DESKTOP} DESKTOP
-${voffset 5}${goto 110}CPU
+${voffset 5}${goto 110}CPU${goto 180}Temperature: ${hwmon temp 1}*c
 ${voffset 0}${color gray}${offset 100}${voffset 2}${cpugraph cpu6 17,1}${voffset -12}${hr 2}
 ${goto 140}${color gray}${font Future:size=14}${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq | cut -c 1-26}
 ${voffset 19}${goto 88}${color gray}${font Future:size=20}${cpu}%
