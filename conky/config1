@@ -50,12 +50,6 @@ ${voffset 8}${if_up eth0}${voffset -5}Download: ${font Future:size=16} ${downspe
 ${if_up eth0}${voffset 6}Upload: ${font Future:size=16} ${upspeed eth0}$else ${font Future:size=16}${voffset 6}Upload: ${font Future:size=16} ${voffset -7}${upspeed eth0}$endif
 ${color gray}${voffset 11}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${voffset 260}${color gray}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
-${font Future:size=16}${voffset -200}${goto 240}Top Memory
-${voffset 10}${font Future:size=14}${goto 230}${top_mem name 1}
-${goto 230}${top_mem name 2}
-${goto 230}${top_mem name 3}
-${goto 230}${top_mem name 4}
-${goto 230}${top_mem name 5}
-${voffset -200}${font Future:size=16}Internet Connection
+${voffset -250}${font Future:size=16}Internet Connection
 ${font Future:size=14}${exec netstat -anptu |  grep -E '(127.0.0.1:|0.0.0.0|ESTABLISHED|LISTEN)' | awk '{print $7}' | sort | uniq}
 ]]
