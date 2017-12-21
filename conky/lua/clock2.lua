@@ -293,4 +293,6 @@ end
   end
 
   draw_clock_hands(cr,clock_x,clock_y)
+  cairo_destroy(cr)
+  cairo_surface_destroy(cs)
 end

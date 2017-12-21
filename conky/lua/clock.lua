@@ -215,6 +215,7 @@ function draw_ring(cr,t,pt)
 	cairo_arc(cr,xc,yc,ring_r,angle_0,angle_0+t_arc)
 	cairo_set_source_rgba(cr,rgb_to_r_g_b(fgc,fga))
 	cairo_stroke(cr)
+--	cairo_destroy(cr)
 end
 
 function draw_clock_hands(cr,xc,yc)
@@ -258,7 +259,9 @@ function draw_clock_hands(cr,xc,yc)
 		--
 		cairo_set_line_width(cr,1)
 		cairo_stroke(cr)
+--		cairo_destroy(cr) --okay
 	end
+--	cairo_destroy(cr) --okay
 end
 
 function conky_clock_rings()
@@ -305,4 +308,6 @@ end
 	end
 
 	draw_clock_hands(cr,clock_x,clock_y)
+	cairo_destroy(cr) --okay
+	cairo_surface_destroy(cs)
 end

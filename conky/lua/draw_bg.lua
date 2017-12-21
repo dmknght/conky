@@ -40,4 +40,5 @@
        
         cairo_set_source_rgba(cr,rgb_to_r_g_b(bg_colour,bg_alpha))
         cairo_fill(cr)
+		cairo_destroy(cr)
     end
