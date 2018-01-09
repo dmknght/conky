@@ -37,17 +37,17 @@ conky.config = {
 
 conky.text = [[
 ${color gray}${voffset 3}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}
-${color gray}${voffset -10}${font Future:size=14}${voffset 5}${if_up wlan0}Wireless available${voffset 25}${offset -130}IP: ${exec /sbin/ifconfig wlan0 | grep 'inet ' | cut -d: -f2 | awk '{print $2}'}$else Wireless not available$endif
-${voffset 8}${if_up eth0}Ethernet available${voffset 25}${offset -130}IP: ${exec /sbin/ifconfig etho- | grep 'inet' | cut -d: -f2| awk '{print $2}'}$else Eth0 not available $endif
-${voffset -60}${color gray}${font Future:size=18}${goto 285}${if_up wlan0}${wireless_link_qual_perc wlan0}% $else$endif
+${color gray}${voffset -10}${font Future:size=14}${voffset 5}${if_up wlan0}Wireless is available${voffset 25}${offset -130}IP: ${exec /sbin/ifconfig wlan0 | grep 'inet ' | cut -d: -f2 | awk '{print $2}'}$else Wireless is not available${voffset 25}${offset -160}No IP address$endif
+${voffset 8}${if_up eth0}Ethernet is available${voffset 25}${offset -130}IP: ${exec /sbin/ifconfig etho- | grep 'inet' | cut -d: -f2| awk '{print $2}'}$else Eth0 is not available${voffset 25}${offset -130}No IP address$endif
+${voffset -60}${color gray}${font Future:size=18}${goto 285}${if_up wlan0}${wireless_link_qual_perc wlan0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
 ${voffset 32}${color gray}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${color gray}${voffset -10}Wireless
-${voffset 8}${if_up wlan0}Download: ${font Future:size=16} ${downspeed wlan0}$else ${font Future:size=16}${voffset -5}Download: ${font Future:size=16} ${voffset -8}${downspeed wlan0}$endif
-${if_up wlan0}${voffset 6}Upload: ${font Future:size=16} ${upspeed wlan0}$else ${font Future:size=16}${voffset 6}Upload: ${font Future:size=16} ${voffset -7}${upspeed wlan0}$endif
+${voffset 8}${if_up wlan0}Download: ${font Future:size=16} ${downspeed wlan0}$else ${voffset -5}Download: ${downspeed wlan0}$endif
+${if_up wlan0}${voffset 6}Upload: ${font Future:size=16} ${upspeed wlan0}$else ${voffset 6}Upload: ${upspeed wlan0}$endif
 ${voffset 9}${color gray}${voffset 1}${cpugraph cpu6 1,200}${voffset 9}${cpugraph cpu6 17,1}
 ${color gray}Ethernet
-${voffset 8}${if_up eth0}${voffset -5}Download: ${font Future:size=16} ${downspeed eth0}$else ${font Future:size=16}$Download: ${font Future:size=16} ${downspeed eth0}$endif
-${if_up eth0}${voffset 6}Upload: ${font Future:size=16} ${upspeed eth0}$else ${font Future:size=16}${voffset 6}Upload: ${font Future:size=16} ${voffset -7}${upspeed eth0}$endif
+${voffset 8}${if_up eth0}${voffset -5}Download: ${font Future:size=16} ${downspeed eth0}$else Download: ${downspeed eth0}$endif
+${if_up eth0}${voffset 6}Upload: ${font Future:size=16} ${upspeed eth0}$else ${voffset 6}Upload: ${upspeed eth0}${voffset -15}$endif
 ${color gray}${voffset 11}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${voffset 260}${color gray}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
 ${font Future:size=16}${voffset -200}${goto 240}Top Memory
