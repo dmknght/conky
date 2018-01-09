@@ -7,3 +7,4 @@ Setup:
 3. Install font in Future folder
 Requires cairo for lua script
 Special thanks to author of Black perl conky
+Known bug: connection panel disappeared or displayed wrong way when networking chagned to no connection
