@@ -43,14 +43,14 @@ ${voffset -60}${color gray}${font Future:size=18}${goto 285}${if_up wlan0}${wire
 ${voffset 32}${color gray}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${color gray}${voffset -10}Wireless
 ${voffset 8}${if_up wlan0}Download: ${font Future:size=16} ${downspeed wlan0}$else ${voffset -5}Download: None$endif
-${if_up wlan0}${voffset 6}Upload: ${font Future:size=16} ${upspeed wlan0}$else ${voffset 6}Upload: None$endif
+${if_up wlan0}${voffset 6}Upload: ${upspeed wlan0}$else ${voffset 6}Upload: None$endif
 ${voffset 9}${color gray}${voffset 1}${cpugraph cpu6 1,200}${voffset 9}${cpugraph cpu6 17,1}
 ${color gray}Ethernet
-${voffset 8}${if_up eth0}${voffset -5}Download: ${font Future:size=16} ${downspeed eth0}$else Download: None$endif
-${if_up eth0}${voffset 6}Upload: ${font Future:size=16} ${upspeed eth0}$else ${voffset 6}Upload: None${voffset -15}$endif
-${color gray}${voffset 11}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
-${voffset 260}${color gray}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
-${font Future:size=16}${voffset -200}${goto 240}Top Memory
+${voffset 8}${if_up eth0}${voffset -5}Download: ${downspeed eth0}$else Download: None$endif
+${if_up eth0}${voffset 6}Upload: ${upspeed eth0}$else ${voffset 6}Upload: None${voffset -4}$endif
+${voffset 11}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
+${voffset 260}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
+${voffset -200}${goto 240}Top Memory
 ${voffset 10}${font Future:size=14}${goto 230}${top_mem name 1}
 ${goto 230}${top_mem name 2}
 ${goto 230}${top_mem name 3}
