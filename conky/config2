@@ -34,7 +34,7 @@ conky.config = {
 }
 conky.text = [[
 ${color gray}${font Future:size=23}${offset 70}Connecting
-${font Future:size=14}${exec netstat -anpt | grep -vE '(:::|Local|and|0.0.0.0)' | awk '{print $7 "\t \t" $5}' | uniq}
+${font Future:size=14}${exec netstat -npt | grep -vE '(:::|Local|and|0.0.0.0|servers|WAIT)' | awk '{print $7 "\t \t" $5}' | sort | uniq}
 ${font Future:size=23}${offset 70}${voffset 5}Listening
-${font Future:size=14}${exec netstat -lntpu | grep -vE '(:::|Local|only)' | awk '{print $4 "\t \t" $7}' | uniq}
+${font Future:size=14}${exec netstat -lntpu | grep -vE '(:::|Local|only)' | awk '{print $4 "\t \t" $7}' | sort | uniq}
 ]]
