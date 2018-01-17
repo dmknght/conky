@@ -6,8 +6,8 @@ conky.config = {
 	no_buffers = true,
 	text_buffer_size = 1024,
 	alignment = 'top_right',
-	gap_x = 380,
-	gap_y = 210,
+	gap_x = 360,
+	gap_y = 60,
 	update_interval = 1,
 
 	draw_shades = false,
@@ -24,7 +24,6 @@ conky.config = {
 	override_utf8_locale = true,
 	uppercase = false,
 	use_spacer = left,
-	font = 'Future:size=9',
 
 	stippled_borders = 3,
 	short_units = true,
@@ -34,6 +33,8 @@ conky.config = {
 --	lua_draw_hook_pre = 'draw_bg'
 }
 conky.text = [[
-${color gray}${font Future:size=18}Open ports
-${voffset 5}${font Future:size=16}${exec netstat -lnt | awk 'NR>2{print $4}' | grep -E '(127.0.0.1|:::)' | sed 's/.*://' | sort -n | uniq}
+${color gray}${font Future:size=23}${offset 70}Connecting
+${font Future:size=14}${exec netstat -anpt | grep -vE '(:::|Local|and|0.0.0.0)' | awk '{print $7 "\t \t" $5}' | uniq}
+${font Future:size=23}${offset 70}${voffset 5}Listening
+${font Future:size=14}${exec netstat -lntpu | grep -vE '(:::|Local|only)' | awk '{print $4 "\t \t" $7}' | uniq}
 ]]
