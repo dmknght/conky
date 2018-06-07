@@ -52,6 +52,6 @@ ${font "Sans Regular":size=12}${voffset 8}${if_up enp9s0}${voffset -5} Download:
 ${if_up enp9s0}${voffset 6} Upload: ${upspeed enp9s0}$else ${voffset 6}Upload: None${voffset -4}$endif
 ${voffset 55}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 TOP PROCESSES
-${voffset 20}${exec ps -aux | awk '{print $2 "\t" $3 "\t" $4 "\t\t" $11}' | sort -k 3,4 -r | head -8}
+${voffset 20}${exec ps -aux | awk '{print $2 "\t" $3 "\t" $4 "\t\t" $11}' | sort -k 3,4 -r | head -8 | cut -c 1-40}
 ${voffset 17}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
 ]]
