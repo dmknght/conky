@@ -11,7 +11,10 @@ Know bug:
 2. Too many connection can make conky display over panel
 3. Tested on 1366 x 768 screen -> maybe display wrong on other screen resolution
 
-In Parrot Sec, Ubuntu,... please change wlp7s0 to wlan0, enp9s0 to eth0
+# Other platform
+1. In Parrot Sec, Ubuntu,... please change wlp7s0 to wlan0, enp9s0 to eth0
+2. Gnome transparent: https://ubuntuforums.org/showthread.php?t=2371626
+	own_window_argb_visual = true, -> own_window_argb_visual = false, if error
 
 Links:
 black pearl conky: https://github.com/bchretien/BlackPearlConky
