@@ -39,8 +39,8 @@ conky.config = {
 
 conky.text = [[
 ${voffset 2}${cpugraph cpu6 1,300}${voffset 8}${cpugraph cpu6 17,1}
-${voffset -10}${font "Sans Regular":size=12}${voffset 5}${if_up wlp7s0}Wireless is available${voffset 25}${offset -130}IP: ${exec ip addr show wlp7s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1}$else Wireless is not available${voffset 25}${offset -160}No IP address$endif
-${voffset 8}${if_up enp9s0}Ethernet is available${voffset 25}${offset -130}IP: ${exec ip addr show enp9s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1}$else Ethernet is not available${voffset 25}${offset -130}No IP address$endif
+${voffset -10}${font "Sans Regular":size=12}${voffset 5}${if_up wlp7s0}Wireless is available${voffset 25}${offset -130}IP: ${exec ip addr show wlp7s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1 | head -1}$else Wireless is not available${voffset 25}${offset -160}No IP address$endif
+${voffset 8}${if_up enp9s0}Ethernet is available${voffset 25}${offset -130}IP: ${exec ip addr show enp9s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1 | head -1}$else Ethernet is not available${voffset 25}${offset -130}No IP address$endif
 ${voffset -50}${font "Sans Regular":size=16}${goto 285}${if_up wlp7s0}${wireless_link_qual_perc wlp7s0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
 ${voffset 27}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${font "Sans Regular":size=16}${voffset -10}Wireless
