@@ -33,8 +33,9 @@ conky.config = {
 
 }
 conky.text = [[
+conky.text = [[
 ${color gray}${font "Sans Regular":size=16}${offset 70}Connecting
-${font "Sans Regular":size=11}${exec netstat -npt | grep -vE '(:::|Local|and|0.0.0.0|servers|WAIT)' | awk '{print $7 "\t \t" $5}' | sort | uniq 2>/dev/null}
+${font "Sans Regular":size=11}${exec netstat -ntp 2>/dev/null | grep ESTABLISHED | awk '{print $7}' | sed -e 's/-//g' | sort | uniq | sed -e 's/\//\t/g'}
 ${font "Sans Regular":size=16}${offset 70}${voffset 5}Listening
-${font "Sans Regular":size=11}${exec netstat -lntpu | grep -vE '(:::|Local|only)' | awk '{print $4 "\t \t" $7}' | sort | uniq 2>/dev/null}
+${font "Sans Regular":size=11}${exec netstat -lntpu 2>/dev/null | grep LISTEN |  awk '{print $7}' | sed -e 's/-//g' | sort | uniq | sed -e 's/\//\t/g'}
 ]]
