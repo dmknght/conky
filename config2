@@ -33,8 +33,6 @@ conky.config = {
 
 }
 conky.text = [[
-conky.text = [[
-conky.text = [[
 ${color gray}
 ${font "Sans Regular":size=14}${offset 13}Tor service: ${if_running tor}on${else}off${endif}
 ${offset 14}OpenVPN: ${if_running OpenVPN}on${else}off${endif}
