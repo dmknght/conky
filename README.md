@@ -4,7 +4,8 @@ I tried my best to bring system information as much as i can to conky's panel.
 Setup:
 1. sudo apt install conky-all
 2. Copy all file in folder to /etc/conky/
-3. add exec permission to startup.sh, edit conky in 'startup applications' to     /etc/conky/startup.sh
+3. Add exec permission to startup.sh, edit conky in 'startup applications' to     /etc/conky/startup.sh
+4. Move conky.desktop to /usr/share/applications/
 
 Know bug:
 1. connection panel disappeared or displayed wrong way when networking changed to no connection.
