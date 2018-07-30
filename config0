@@ -71,5 +71,4 @@ ${voffset 5}${goto 170}Write:
 ${goto 230}${voffset -25}${diskiograph_write 40, 100}${goto 170}${voffset -5}${diskio_write}
 ${font "Sans Regular":size=16}${voffset -10}${goto 45}Free $fs_free
 ${voffset 0}${offset 5}${voffset -1}${cpugraph cpu6 17,1}${voffset 6}${hr 2}
-
 ]]
