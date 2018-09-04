@@ -39,17 +39,17 @@ conky.config = {
 
 conky.text = [[
 ${voffset 2}${cpugraph cpu6 1,300}${voffset 8}${cpugraph cpu6 17,1}
-${voffset -10}${font "Sans Regular":size=12}${voffset 5}${if_up wlp7s0}Wireless: "${exec ssid=$(iw dev wlp7s0 link | grep SSID | cut -d ':' -f 2); if [ "$ssid" ]; then echo "$ssid"; else echo -n "No connection"; fi}"${voffset 25}${offset -130}IP: ${exec ipaddr=$(ip addr show wlp7s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1); if [ "$ipaddr" ]; then echo $ipaddr; else echo "No Address"; fi}$else Wireless is not available${voffset 25}${offset -160}No IP address$endif
-${voffset 8}${if_up enp9s0}Ethernet: ${exec if [ "`ip addr show enp9s0 | grep inet`" ]; then echo "Connected"; else echo "No connection"; fi}${voffset 25}${offset -130}IP: ${exec ipaddr=$(ip addr show enp9s0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1); if [ "$ipaddr" ]; then echo $ipaddr; else echo "No Address"; fi}$else Ethernet is not available${voffset 25}${offset -130}No IP address$endif
-${voffset -50}${font "Sans Regular":size=16}${goto 275}${if_up wlp7s0}${wireless_link_qual_perc wlp7s0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
+${voffset -10}${font "Sans Regular":size=12}${voffset 5}${if_up wlan0}Wireless: "${exec ssid=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d: -f2); if [ "$ssid" ]; then echo "$ssid"; else echo -n "No connection"; fi}"${voffset 25}${offset -130}IP: ${exec ipaddr=$(ip addr show wlan0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1); if [ "$ipaddr" ]; then echo $ipaddr; else echo "No Address"; fi}$else Wireless is not available${voffset 25}${offset -160}No IP address$endif
+${voffset 8}${if_up eth0}Ethernet: ${exec if [ "`ip addr show eth0 | grep inet`" ]; then echo "Connected"; else echo "No connection"; fi}${voffset 25}${offset -130}IP: ${exec ipaddr=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1); if [ "$ipaddr" ]; then echo $ipaddr; else echo "No Address"; fi}$else Ethernet is not available${voffset 25}${offset -130}No IP address$endif
+${voffset -50}${font "Sans Regular":size=16}${goto 275}${if_up wlan0}${wireless_link_qual_perc wlan0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
 ${voffset 27}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 ${font "Sans Regular":size=16}${voffset -10}Wireless
-${font "Sans Regular":size=12}${voffset 8}${if_up wlp7s0} Download: ${downspeed wlp7s0}$else ${voffset -5}Download: None$endif
-${if_up wlp7s0}${voffset 6} Upload: ${upspeed wlp7s0}$else ${voffset 6}Upload: None$endif
+${font "Sans Regular":size=12}${voffset 8}${if_up wlan0} Download: ${downspeed wlan0}$else ${voffset -5}Download: None$endif
+${if_up wlan0}${voffset 6} Upload: ${upspeed wlan0}$else ${voffset 6}Upload: None$endif
 ${voffset 15}${voffset 1}${cpugraph cpu6 1,200}${voffset 9}${cpugraph cpu6 17,1}
 ${font "Sans Regular":size=16}Ethernet
-${font "Sans Regular":size=12}${voffset 8}${if_up enp9s0}${voffset -5} Download: ${downspeed enp9s0}$else Download: None$endif
-${if_up enp9s0}${voffset 6} Upload: ${upspeed enp9s0}$else ${voffset 6}Upload: None${voffset -4}$endif
+${font "Sans Regular":size=12}${voffset 8}${if_up eth0}${voffset -5} Download: ${downspeed eth0}$else Download: None$endif
+${if_up eth0}${voffset 6} Upload: ${upspeed eth0}$else ${voffset 6}Upload: None${voffset -4}$endif
 ${voffset 55}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
 TOP PROCESSES
 ${voffset 20}${exec ps -aux | awk '{print $2 "\t" $3 "\t" $4 "\t\t" $11}' | sort -k 3,4 -r | head -8 | cut -c 1-40}
