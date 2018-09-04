@@ -9,7 +9,7 @@ conky.config = {
 	out_to_console = false,
 	update_interval = 1,
 	alignment = 'top_right',
-	maximum_width = 350,
+
 	gap_x = 0,
 	gap_y = 60,
 	draw_shades = false,
@@ -48,7 +48,7 @@ conky.text = [[
 
 ${color gray}${offset 56}${voffset 0}${cpugraph cpu6 17,1}${voffset -12}${hr 2}
 ${voffset 0}${goto 190}${font "Sans Regular":size=16}${exec echo "$USER"}
-${voffset 6}${goto 130}${font "Sans Regular":size=13}${exec lsb_release -d | cut -f 2}
+${voffset 6}${goto 130}${font "Sans Regular":size=13}${exec cat /etc/lsb-release | grep DESCRIPTION | cut -d = -f2}
 ${font "Sans Regular":size=13}${goto 130}$kernel
 ${voffset 5}${goto 130}${exec echo $XDG_CURRENT_DESKTOP} DESKTOP
 ${voffset 10}${goto 180}Temperature: ${hwmon temp 1}*c
