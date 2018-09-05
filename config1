@@ -1,17 +1,16 @@
 conky.config = {
 	total_run_times = 0,
 	background = true,
-
+	cpu_avg_samples = 1,
+	net_avg_samples = 2,
 	double_buffer = true,
 	no_buffers = true,
 	text_buffer_size = 1024,
-	alignment = 'top_right',
-	gap_x = 440,
-	gap_y = 60,
+	out_to_console = false,
 	update_interval = 1,
-	net_avg_samples = 2,
-	cpu_avg_samples = 1,
-
+	alignment = 'top_right',
+	gap_x = 680,
+	gap_y = 60,
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -27,15 +26,15 @@ conky.config = {
 	xftalpha = .1,
 	override_utf8_locale = true,
 	uppercase = false,
-	use_spacer = left,
-	
-	lua_load = '/etc/conky/lua/clock1.lua',
-	lua_draw_hook_pre = 'clock_rings'
+	use_spacer = right,
+	font = '"Sans Regular":size=12',
 	stippled_borders = 3,
 	short_units = true,
 	pad_percents = 2,
-
+	lua_load = '/etc/conky/lua/clock1.lua',
+	lua_draw_hook_pre = 'clock_rings'
 }
+
 conky.text = [[
 ${voffset 2}${cpugraph cpu6 1,300}${voffset 8}${cpugraph cpu6 17,1}
 ${voffset -10}${font "Sans Regular":size=12}${voffset 5}Wireless: ${if_existing /proc/net/route wlan0}${exec nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d: -f2}${else}NOT Available${endif}${voffset 25}${offset -130}IP: ${if_existing /proc/net/route wlan0}${addr wlan0}${else}No Address${endif}
