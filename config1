@@ -39,7 +39,7 @@ conky.config = {
 
 conky.text = [[
 ${voffset 2}${cpugraph cpu6 1,300}${voffset 8}${cpugraph cpu6 17,1}
-${voffset -10}${font "Sans Regular":size=12}${voffset 5}Wireless: ${if_existing /proc/net/route wlan0}${exec nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d: -f2}${else}NOT Available${endif}${voffset 25}${offset -130}${if_existing /proc/net/route wlan0}${addr wlan0}${else}NoAddress${endif}
+${voffset -10}${font "Sans Regular":size=12}${voffset 5}Wireless: ${if_existing /proc/net/route wlan0}${exec nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d: -f2}${else}NOT Available${endif}${voffset 25}${offset -130}IP: ${if_existing /proc/net/route wlan0}${addr wlan0}${else}No Address${endif}
 ${voffset 8}Ethernet: ${if_up eth0}Available${else}NOT Available${endif}${voffset 25}${offset -130}${if_existing /proc/net/route eth0}IP: ${addr eth0}${else}No Address${endif}
 ${voffset -50}${font "Sans Regular":size=16}${goto 275}${if_up wlan0}${wireless_link_qual_perc wlan0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
 ${voffset 27}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
