@@ -33,11 +33,20 @@ conky.config = {
 
 }
 conky.text = [[
-${color gray}
-${font "Sans Regular":size=14}${offset 13}Tor service: ${if_running tor}on${else}off${endif}
-${offset 14}OpenVPN: ${if_running OpenVPN}on${else}off${endif}
-${voffset 10}${font "Sans Regular":size=16}${offset 10}Connecting
-${font "Sans Regular":size=11}${exec netstat -ntp 2>/dev/null | grep ESTABLISHED | awk '{print $7}' | sed -e 's/-//g' | sort | uniq | sed -e 's/\//\t\t/g'}
-${font "Sans Regular":size=16}${offset 10}${voffset 5}Listening
-${font "Sans Regular":size=11}${exec netstat -lntpu 2>/dev/null | grep LISTEN |  awk '{print $7}' | sed -e 's/-//g' | sort | uniq | sed -e 's/\//\t\t/g'}
+${voffset 2}${cpugraph cpu6 1,300}${voffset 8}${cpugraph cpu6 17,1}
+${voffset -10}${font "Sans Regular":size=12}${voffset 5}Wireless: ${if_existing /proc/net/route wlan0}${exec nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d: -f2}${else}NOT Available${endif}${voffset 25}${offset -130}IP: ${if_existing /proc/net/route wlan0}${addr wlan0}${else}No Address${endif}
+${voffset 8}Ethernet: ${if_up eth0}Available${else}NOT Available${endif}${voffset 25}${offset -130}IP: ${if_existing /proc/net/route eth0}${addr eth0}${else}No Address${endif}
+${voffset -50}${font "Sans Regular":size=16}${goto 275}${if_up wlan0}${wireless_link_qual_perc wlan0}%$else${offset -20}${voffset 5}No signal${voffset -5}$endif
+${voffset 27}${voffset 1}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
+${font "Sans Regular":size=16}${voffset -10}Wireless
+${font "Sans Regular":size=12}${voffset 8}${if_up wlan0} Download: ${downspeed wlan0}$else ${voffset -5}Download: None$endif
+${if_up wlan0}${voffset 6} Upload: ${upspeed wlan0}$else ${voffset 6}Upload: None$endif
+${voffset 15}${voffset 1}${cpugraph cpu6 1,200}${voffset 9}${cpugraph cpu6 17,1}
+${font "Sans Regular":size=16}Ethernet
+${font "Sans Regular":size=12}${voffset 8}${if_up eth0}${voffset -5} Download: ${downspeed eth0}$else Download: None$endif
+${if_up eth0}${voffset 6} Upload: ${upspeed eth0}$else ${voffset 6}Upload: None${voffset -4}$endif
+${voffset 55}${cpugraph cpu6 1,200}${voffset 8}${cpugraph cpu6 17,1}
+TOP PROCESSES
+${voffset 20}${exec ps -aux | awk '{print $2 "\t" $3 "\t" $4 "\t\t" $11}' | sort -k 3,4 -r | head -8 | cut -c 1-40}
+${voffset 17}${cpugraph cpu6 1,400}${voffset -8}${cpugraph cpu6 17,1}
 ]]
