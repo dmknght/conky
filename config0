@@ -31,13 +31,7 @@ conky.config = {
 	font = '"Sans Regular":size=12',
 	stippled_borders = 3,
 
-	default_color = '00FFFF',
-	default_shade_color = '333333',
-	default_outline_color = 'black',
 
-	color1 = 'D6D6D6',
-	color2 = 'EFEFEF',
-	color3 = 'A3ADB0',
 	short_units = true,
 	pad_percents = 2,
 	lua_load = '/etc/conky/lua/clock.lua',
@@ -53,22 +47,22 @@ ${font "Sans Regular":size=13}${goto 130}$kernel
 ${voffset 5}${goto 130}${exec echo $XDG_CURRENT_DESKTOP} DESKTOP
 ${voffset 10}${goto 180}Temperature: ${hwmon temp 1}*c
 ${voffset 8}${offset 100}${voffset 2}${cpugraph cpu6 17,1}${offset -4}${voffset -18}CPU ${voffset -3}${hr 2}
-${voffset 10}${alignr}${font "Sans Regular":size=11}${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq | cut -c 1-26}
+${voffset 10}${offset 160}${font "Sans Regular":size=11}${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq | cut -c 1-26}
 ${voffset 17}${goto 88}${font "Sans Regular":size=16}${cpu}%
 ${voffset 38}${offset 150}${voffset 3}${cpugraph cpu6 13,1}${font "Sans Regular":size=12}${voffset -20}${offset -4}MEMORY ${voffset -3}${hr 2}
 ${voffset 45}${goto 136}${font "Sans Regular":size=16}${memperc}%
-${font "Sans Regular":size=12}${voffset -50}${goto 200}Total: ${memmax}
-${voffset 3}${goto 210}Using: ${mem}
-${voffset 3}${goto 210}Free: ${memfree}
-${voffset 3}${goto 200}Cache: ${cached}
-${voffset 13}${goto 100}Swap: $swapperc% $alignr$swap/$swapmax
+${font "Sans Regular":size=12}${voffset -50}${goto 230}Total: ${memmax}
+${voffset 3}${goto 240}Using: ${mem}
+${voffset 3}${goto 240}Free: ${memfree}
+${voffset 3}${goto 230}Cache: ${cached}
+${voffset 13}${goto 100}Swap: $swapperc% ${offset 180}$swap/$swapmax
 ${voffset 29}${offset 100}${cpugraph cpu6 17,1}${voffset -18}${offset -4}STORAGE ${voffset -3}${hr 2}
 ${voffset 56}${goto 87}${font "Sans Regular":size=16}$fs_used_perc%
-${voffset -65}${goto 160}${font "Sans Regular":size=12}Using: $fs_used / $fs_size
-${voffset 15}${goto 170}Read:
-${voffset 5}${goto 230}${voffset -30}${diskiograph_read 40, 100}${goto 170}${voffset -5}$diskio_read
-${voffset 5}${goto 170}Write:
-${goto 230}${voffset -25}${diskiograph_write 40, 100}${goto 170}${voffset -5}${diskio_write}
+${voffset -65}${goto 180}${font "Sans Regular":size=12}Using: $fs_used / $fs_size
+${voffset 15}${goto 180}Read:
+${voffset 5}${goto 240}${voffset -30}${diskiograph_read 40, 100}${goto 180}${voffset -5}$diskio_read
+${voffset 5}${goto 180}Write:
+${goto 240}${voffset -25}${diskiograph_write 40, 100}${goto 180}${voffset -5}${diskio_write}
 ${font "Sans Regular":size=16}${voffset -10}${goto 45}Free $fs_free
 ${voffset 0}${offset 5}${voffset -1}${cpugraph cpu6 17,1}${voffset 6}${hr 2}
 ]]
