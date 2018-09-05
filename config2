@@ -6,7 +6,7 @@ conky.config = {
 	no_buffers = true,
 	text_buffer_size = 1024,
 	alignment = 'top_right',
-	gap_x = 380,
+	gap_x = 440,
 	gap_y = 60,
 	update_interval = 1,
 
@@ -36,6 +36,7 @@ conky.text = [[
 ${color gray}
 ${font "Sans Regular":size=14}${offset 13}Tor service: ${if_running tor}on${else}off${endif}
 ${offset 14}OpenVPN: ${if_running OpenVPN}on${else}off${endif}
+${hr 2}
 ${voffset 10}${font "Sans Regular":size=16}${offset 10}Connecting
 ${font "Sans Regular":size=11}${exec netstat -ntp 2>/dev/null | grep ESTABLISHED | awk '{print $7}' | sed -e 's/-//g' | sort | uniq | sed -e 's/\//\t\t/g'}
 ${font "Sans Regular":size=16}${offset 10}${voffset 5}Listening
