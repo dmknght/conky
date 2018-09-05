@@ -9,6 +9,8 @@ conky.config = {
 	gap_x = 440,
 	gap_y = 60,
 	update_interval = 1,
+	net_avg_samples = 2,
+	cpu_avg_samples = 1,
 
 	draw_shades = false,
 	draw_outline = false,
@@ -26,7 +28,9 @@ conky.config = {
 	override_utf8_locale = true,
 	uppercase = false,
 	use_spacer = left,
-
+	
+	lua_load = '/etc/conky/lua/clock1.lua',
+	lua_draw_hook_pre = 'clock_rings'
 	stippled_borders = 3,
 	short_units = true,
 	pad_percents = 2,
