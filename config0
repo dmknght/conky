@@ -55,7 +55,7 @@ ${font "Sans Regular":size=12}${voffset -50}${goto 230}Total: ${memmax}
 ${voffset 3}${goto 240}Using: ${mem}
 ${voffset 3}${goto 240}Free: ${memfree}
 ${voffset 3}${goto 230}Cache: ${cached}
-${voffset 13}${goto 100}Swap: $swapperc% ${offset 180}$swap/$swapmax
+${voffset 13}${goto 100}Swap: $swapperc% ${goto 240}$swap/$swapmax
 ${voffset 29}${offset 100}${cpugraph cpu6 17,1}${voffset -18}${offset -4}STORAGE ${voffset -3}${hr 2}
 ${voffset 56}${goto 87}${font "Sans Regular":size=16}$fs_used_perc%
 ${voffset -65}${goto 180}${font "Sans Regular":size=12}Using: $fs_used / $fs_size
